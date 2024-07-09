@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <link rel="stylesheet" href="/stylesheets/main.css" />
+  <link rel="stylesheet" href="/stylesheets/main.css.map" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+          href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&display=swap"
+          rel="stylesheet"
+  />
+  <script src="/javascripts/query.js"></script>
+  <title>Custom Query</title>
+</head>
+<body>
+<div class="page_body">
+  <div class="sidebar">
+    <h1
+            style="text-align: center; color: white"
+            class="form-label fs-4 text"
+    >
+      Clínica Médica DB
+    </h1>
+    <div
+            style="
+            height: 10vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          "
+    >
+      <a href="/" class="btn btn-primary">Voltar</a>
+    </div>
+  </div>
+  <div class="right_side">
+    <div class="main_body">
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label"
+        >Escreva sua query aqui:</label
+        >
+        <button
+                style="position: absolute; right: 8vh"
+                type="button"
+                class="btn btn-success btn-sm"
+                id="runButton"
+        >
+          Executar
+          <img
+                  style="height: 2vh; margin-bottom: 0.2vh"
+                  src="/icons/play.svg"
+          />
+        </button>
+        <select
+                style="position: absolute; right: 55vh; width: 23vh; top: 5.1vh"
+                class="form-select form-select-sm"
+                aria-label="Default select example"
+                id="querySelect"
+        >
+          <option selected>Carregar Query salva</option>
+        </select>
+        <button
+                style="position: absolute; right: 20vh"
+                type="button"
+                class="btn btn-success btn-sm"
+                id="saveQuery"
+        >
+          Salvar
+        </button>
+        <input
+                style="position: absolute; right: 30vh; width: 23vh; top: 5.1vh"
+                type="text"
+                class="form-control form-control-sm"
+                id="query_name"
+                placeholder="Nome da sua query"
+                aria-describedby="emailHelp"
+        />
+        <textarea
+                style="margin-top: 2vh"
+                class="form-control"
+                id="queryTextarea"
+                rows="3"
+        ></textarea>
+      </div>
+      <div>
+        <label for="sqlFileInput">Ou selecione um arquivo SQL:</label>
+        <input
+                type="file"
+                id="sqlFileInput"
+        />
+      </div>
+      <table class="table table-hover" id="resultTable">
+        <thead></thead>
+        <tbody></tbody>
+      </table>
+      <p id="resultParagraph"></p>
+      <button
+              type="button"
+              class="btn btn-primary btn-sm"
+              id="explainButton"
+      >
+        Explicar Plano da Query
+      </button>
+    </div>
+  </div>
+</div>
+</body>
+</html>
