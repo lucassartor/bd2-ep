@@ -1,8 +1,7 @@
 import express, { Request, Response } from "express";
 import databaseFunctions from "../Utils/databaseFunctions";
-import * as sqlite3 from "sqlite3"; // Assuming you're using sqlite3
+import * as sqlite3 from "sqlite3";
 import sqlGenerator from "../Utils/sqlGenerator";
-import logger from "../Utils/logger";
 
 const router = express.Router();
 
@@ -130,9 +129,7 @@ function tableRoutes(db: sqlite3.Database) {
           db,
           lowersqlQuery
         );
-        const time = performance.now() - startTime;
-        let executionTime = "\n Tempo de execução: " + time?.toFixed(2) + "ms";
-        let message = "Query executada com sucesso!" + executionTime;
+
         if (lowersqlQuery.startsWith("select count(*)")) {
           if (response.data !== undefined) {
             res.status(200).json({
@@ -146,6 +143,9 @@ function tableRoutes(db: sqlite3.Database) {
             });
           }
         } else {
+          const time = performance.now() - startTime;
+          let executionTime = "\n Tempo de execução: " + time?.toFixed(2) + "ms";
+          let message = "Query executada com sucesso!" + executionTime;
           if (response.data?.length == 0) {
             res.status(200).json({ type: "table", data: response.data, message: "Nenhuma linha encontrada." + executionTime});
           }

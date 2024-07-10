@@ -1,6 +1,5 @@
 import * as sqlite3 from "sqlite3"; // Assuming you're using sqlite3
 import logger from "./logger"; // Assuming logger is imported from a separate file
-import { AnyARecord } from "dns";
 
 // Interface for a Query object (optional for improved type safety)
 interface Query {
