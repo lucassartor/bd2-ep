@@ -47,4 +47,4 @@ async function Server(db: sqlite3.Database, port = 8080) {
     });
 }
 
-module.exports = Server;
+export default Server;
